@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Photo Picks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12101f;--card:#1c1930;--text:#f4efe9;--soft:#a9a2c4;--coral:#ff7a59;--iris:#8f86ff}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 14px}
+header{padding:38px 0 18px}
+header h1{font-size:clamp(2.2rem,8vw,4.4rem);line-height:1;font-weight:800;letter-spacing:-.03em}
+header p{margin-top:10px;max-width:30rem;color:var(--soft)}
+a{color:inherit;text-decoration:none}
+.photo{position:relative;display:block;overflow:hidden;border-radius:16px;background:linear-gradient(150deg,#3a2f7a,#1c1930);aspect-ratio:3/4}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.item:hover .photo img,.photo:hover img,.photo:focus-visible img,.photo:active img{transform:scale(1.18)}
+.photo:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:46px 12px 12px;background:linear-gradient(transparent,rgba(10,8,22,.88));font-weight:600}
+.feature{margin:6px 0 30px}
+.feature .photo{aspect-ratio:16/9}
+.feature .cap{padding:90px 22px 22px;font-size:clamp(1.3rem,4vw,2.2rem);font-weight:800;line-height:1.15}
+.feature .cap span{display:inline-block;margin-top:12px;background:var(--coral);color:#1b0e0a;padding:10px 20px;border-radius:999px;font-size:1rem;font-weight:600}
+h2{font-size:1.5rem;font-weight:800;margin:6px 2px 14px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:34px}
+.item .btn{display:block;margin-top:10px;text-align:center;padding:10px;border-radius:999px;background:var(--card);border:1.5px solid var(--iris);font-weight:600}
+.item .btn:hover,.item .btn:focus-visible{background:var(--iris);color:#12101f;outline:none}
+@media(max-width:820px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}.feature .photo{aspect-ratio:4/3}}
+footer{padding:26px 14px 40px;text-align:center;color:var(--soft);font-size:.85rem;border-top:1px solid var(--card)}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:10px 0 36px}
+@media(max-width:820px){.info{grid-template-columns:1fr}}
+.info p{color:var(--soft);max-width:34rem}
+details{background:var(--card);border-radius:12px;padding:12px 16px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px}
+.info a{color:var(--coral);text-decoration:underline}
+@media(prefers-reduced-motion:reduce){.photo img{transition:none}.item:hover .photo img,.photo:hover img,.photo:active img{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Daily photo picks</h1>
+    <p>A fresh set of photos every day. Tap any photo to see more.</p>
+  </header>
+
+  <div class="feature"><a class="photo" id="feature" rel="sponsored noopener" target="_blank"></a></div>
+
+  <h2>Trending now</h2>
+  <div class="grid" id="row1"></div>
+
+  <h2>Most viewed</h2>
+  <div class="grid" id="row2"></div>
+
+  <div class="info">
+    <section>
+      <h2>About this site</h2>
+      <p>Daily Photo Picks shares a fresh set of photos every day. Browse the picks above and tap any photo or button to see more on our partner page.</p>
+      <h2 style="margin-top:22px">Contact</h2>
+      <p>Questions or feedback? Write to <a href="mailto:your-email@example.com">your-email@example.com</a>.</p>
+    </section>
+    <section>
+      <h2>FAQ</h2>
+      <details><summary>How are the photos chosen?</summary><p>We pick new photos regularly and show the ones we think are worth a look.</p></details>
+      <details><summary>What happens when I tap a photo?</summary><p>It opens our partner page in a new tab. This is an affiliate link, so we may earn a commission.</p></details>
+      <details><summary>Does it cost anything?</summary><p>No. Browsing this site is free.</p></details>
+    </section>
+  </div>
+</div>
+<footer>Some links on this site are affiliate links. We may earn a commission at no extra cost to you.</footer>
+
+<script>
+/* ===== EDIT HERE =====
+   LINK  : your smart link (used by every photo and button)
+   image : photo file name uploaded to GitHub (use .jpeg, e.g. "photo1.jpeg")
+   title : text shown on the photo                                            */
+const LINK = "https://seriousstaunch.com/guvmi3b2y?key=11432b86f8f19c3d28cb8ad56e77f61d";
+
+const featured = { title: "Today's top pick", image: "featured.jpeg" };
+
+const row1 = [
+  { title: "College the First Time 1", image: "photo1.jpeg" },
+  { title: "Homemade love 2", image: "photo2.jpeg" },
+  { title: "Sweet 18 year old couple 3", image: "photo3.jpeg" },
+  { title: "Please...take My Holes 4", image: "photo4.jpeg" }
+];
+const row2 = [
+  { title: "Leana Lovings Earns Top Position with Her Coach 5", image: "photo5.jpeg" },
+  { title: "I Just Shared a Bed with My Cute Stepsister 6", image: "photo6.jpeg" },
+  { title: "Family Issues 7", image: "photo7.jpeg" },
+  { title: "I am mad at you, love me like you do
+ 8", image: "photo8.jpeg" }
+];
+
+function img(p){return `<img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.remove()">`}
+const f=document.getElementById('feature');
+f.href=LINK;
+f.innerHTML=img(featured)+`<div class="cap">${featured.title}<br><span>View More</span></div>`;
+function fill(id,list){
+  document.getElementById(id).innerHTML=list.map(p=>`
+    <div class="item">
+      <a class="photo" href="${LINK}" target="_blank" rel="sponsored noopener" aria-label="${p.title}">${img(p)}<div class="cap">${p.title}</div></a>
+      <a class="btn" href="${LINK}" target="_blank" rel="sponsored noopener">View More</a>
+    </div>`).join('');
+}
+fill('row1',row1);fill('row2',row2);
+</script>
+</body>
+</html>
